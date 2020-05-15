@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
+import 'semantic-ui-less/semantic.less';
+import MainLayout from './layouts/MainLayout';
+import AuthLayout from './layouts/AuthLayout';
 
-function App() {
+const App = (props) => {
+  const [isAuthenticated, setAuthenticated] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router basename="/">
+        <div>
+          <Switch>
+          <Route exact path="/" render={() =>
+            isAuthenticated ? <Redirect to="/main" />
+              : <Redirect to="/auth/login" />} />
+          <Route path="/auth" component={AuthLayout} />
+          </Switch>
+        </div>
+    </Router>
   );
 }
 

@@ -1,5 +1,44 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## [초기구성](https://react.semantic-ui.com/theming)
+
+```bash
+yarn add semantic-ui-react
+
+yarn add @craco/craco @semantic-ui-react/craco-less semantic-ui-less --dev
+
+#package.json 파일 수정
+
+"scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject"
+  }
+
+npx @semantic-ui-react/bootstrap
+
+#src/semantic-ui/theme.config 파일 수정
+
+/*******************************
+            Folders
+*******************************/
+
+@themesFolder : 'themes';
+@siteFolder  : '../../src/semantic-ui/site';
+
+@import (multiple) "~semantic-ui-less/theme.less";
+@fontPath : '../../../themes/@{theme}/assets/fonts';
+```
+
+## Global Theme Settings
+
+### `semantic-ui/site/globals/site.variables`
+
+```
+@pageBackground: #F8F8F8;
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
