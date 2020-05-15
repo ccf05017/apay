@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-import { Link, Route, NavLink as RRNavLink, withRouter, Switch, NavLink, Redirect } from "react-router-dom";
-import mainRoutes from 'routes/main';
-import { Menu, Image, Container, Grid, Header } from 'semantic-ui-react';
+import React from 'react';
+import { Link, NavLink as RRNavLink } from "react-router-dom";
 import {
     JamesInput,
     JamesWrapper,

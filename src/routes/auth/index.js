@@ -14,6 +14,7 @@ const authRoutes = [
         name: 'PasswordReset',
         component: PasswordReset
     },
+    
 ]
 
 export default authRoutes;

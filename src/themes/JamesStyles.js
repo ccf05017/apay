@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Menu, Image, Container, Grid, Header, Input, Button } from 'semantic-ui-react';
+import { Input, Button } from 'semantic-ui-react';
 
 
 export const JamesWrapper = styled.div`
