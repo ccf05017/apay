@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink as withRouter, Switch } from "react-router-dom";
+import { Route, withRouter, Switch } from "react-router-dom";
 import authRoutes from '../routes/auth';
 
 const AuthLayout = (props) => {

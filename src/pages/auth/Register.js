@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink as RRNavLink, withRouter } from "react-router-dom";
+import { Link, NavLink as RRNavLink } from "react-router-dom";
 import {
     JamesInput,
     JamesWrapper,
@@ -8,9 +8,8 @@ import {
 } from 'themes/JamesStyles';
 import apayMainImg from 'assets/images/img_main.png';
 import apayMainLogo from 'assets/images/logo_main.svg';
-// import { connect } from 'react-redux';
 
-const Login = ({ loginResult, onClickLoginButton }) => {
+const Register = (props) => {
     return (
         <JamesWrapper>
             <div className='segment'>
@@ -29,42 +28,34 @@ const Login = ({ loginResult, onClickLoginButton }) => {
                 </div>
                 <div className='r-box'>
                     <div className='inner-box'>
-                        <JamesHeader color='black' size='48px'>로그인</JamesHeader>
-                        <span className='bodytext'>계속하기 위해 로그인해주세요.</span>
-                        <JamesInput style={{ height: '60px', marginBottom: '20px', fontSize: '24px' }} placeholder='유저명 또는 이메일주소' />
-                        <JamesInput style={{ height: '60px', marginBottom: '20px', fontSize: '24px' }} placeholder='패스워드' />
-                        <Link
-                            style={{
-                                fontSize: '20px',
-                                color: '#8391A5',
-                                marginBottom: '192px'
-                            }}
-                            to={'password_reset'}
-                            tag={RRNavLink}>
-                            <span>패스워드를 잊으셨나요?</span>
-                        </Link>
+                        <JamesHeader color='black' size='48px'>새로운 가맹점 등록하기</JamesHeader>
+                        <span className='bodytext'>A PAY 가맹점 등록을 환영합니다</span>
+                        <JamesInput style={{ height: '42px', marginBottom: '10px', fontSize: '18px' }} placeholder='상호명' />
+                        <JamesInput style={{ height: '42px', marginBottom: '10px', fontSize: '18px' }} placeholder='미리 발급받은 가맹점 코드' />
+                        <JamesInput style={{ height: '42px', marginBottom: '10px', fontSize: '18px' }} placeholder='이메일주소' />
+                        <JamesInput style={{ height: '42px', marginBottom: '10px', fontSize: '18px' }} placeholder='전화번호' />
+                        <JamesInput style={{ height: '42px', marginBottom: '10px', fontSize: '18px' }} placeholder='패스워드' />
+                        <JamesInput style={{ height: '42px', marginBottom: '10px', fontSize: '18px' }} placeholder='패스워드 확인' />
+                        <span style={{
+                            fontSize: '20px',
+                            color: '#8391A5',
+                            marginBottom: '60px'
+                        }}></span>
                         <div style={{
                             display: 'flex',
                             flexDirection: 'row',
                             alignItems: 'center'
                         }}>
-                            <JamesButton style={{
-                                width: '245px',
-                                height: '64px',
-                                fontSize: '26px',
-                                borderRadius: '50px'
-                            }}
-                                content='로그인'
-                                onClick={onClickLoginButton}/>
+                            <JamesButton style={{ width: '245px', height: '64px', fontSize: '26px', borderRadius: '50px' }} content='가맹점 등록' />
                             <Link
                                 style={{
                                     fontSize: '20px',
                                     color: '#8391A5',
                                     marginLeft: '43px'
                                 }}
-                                to={'register'}
+                                to={'login'}
                                 tag={RRNavLink}>
-                                <span>새로운 가맹점 등록하기</span>
+                                <span>로그인</span>
                             </Link>
                         </div>
                     </div>
@@ -74,4 +65,4 @@ const Login = ({ loginResult, onClickLoginButton }) => {
     );
 }
 
-export default Login;
+export default Register;

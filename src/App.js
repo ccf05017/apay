@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import 'App.css';
 import 'semantic-ui-less/semantic.less';
 import MainLayout from 'layouts/MainLayout';
 import AuthLayout from 'layouts/AuthLayout';
+import { useSelector, useDispatch } from 'react-redux';
+import PrivateRoute from 'routes/PrivateRoute';
 
 const App = (props) => {
-  const [isAuthenticated, setAuthenticated] = useState(false);
+  const { loginResult } = useSelector(state => ({
+    loginResult: state.auth.loginResult
+  }));
 
   return (
     <Router basename="/">
-        <div>
-          <Switch>
+      <div>
+        <Switch>
           <Route exact path="/" render={() =>
-            isAuthenticated ? <Redirect to="/main" />
+            loginResult ? <Redirect to="/main" />
               : <Redirect to="/auth/login" />} />
           <Route path="/auth" component={AuthLayout} />
-          </Switch>
-        </div>
+          <PrivateRoute path="/main" component={MainLayout} loginResult={loginResult} />
+        </Switch>
+      </div>
     </Router>
   );
 }
