@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Menu, Image, Container, Grid, Header } from 'semantic-ui-react';
+import { Menu, Image, Container, Grid, Header, Dropdown } from 'semantic-ui-react';
 import { Link, Route, NavLink as RRNavLink, withRouter, Switch, NavLink, Redirect } from "react-router-dom";
 import mainRoutes from '../routes/main';
-import logo from '../assets/images/logo@2x.png';
 import apayMainLogo from 'assets/images/logo_main.svg';
 import {
     MenuItemText
@@ -21,37 +20,84 @@ const MainLayout = (props) => {
 
     return (
         <div>
-        <Menu fixed='top' secondary style={{ backgroundColor: '#304DB9' }}>
-            <Container style={{ width: '75%' }}>
-                <NavLink to="/">
-                     <Menu.Item>
-                         <Image src={apayMainLogo} />
-                     </Menu.Item>
-                </NavLink>
-                <Menu.Menu position='right'>
-                    {
-                        mainRoutes.filter(route => route.topMenu).map((route, key) => {
-                             console.log(route)
-                            let color = activeItem === route.name || props.location.pathname.includes(route.name.toLowerCase()) ? '#8391a5' : 'white';
-                            //  console.log(activeItem)
-                             return (
-                                 <Link
-                                     style={{ float: 'right' }}
-                                     to={route.path}
-                                     tag={RRNavLink}
-                                     key={key}>
-                                     <Menu.Item
-                                         name={route.name}
-                                         active={activeItem === route.name}
-                                         onClick={handleOnClickMenuItem}>
-                                         <MenuItemText>{route.name}</MenuItemText>
-                                     </Menu.Item>
-                                 </Link>
-                             );
-                         })
-                     }
-                </Menu.Menu>
-            </Container>
+            <Menu fixed='top' secondary style={{ backgroundColor: '#304DB9' }}>
+                <Container style={{ width: '75%' }}>
+                    <NavLink to="/">
+                        <Menu.Item>
+                            <Image src={apayMainLogo} />
+                        </Menu.Item>
+                    </NavLink>
+                    <Menu.Menu position='right'>
+                        {mainRoutes.filter(route => route.menu.position === 'top' && route.menu.category === 'dashboard').map((route, key) => {
+                            console.log(route)
+                            return (
+                                <Link
+                                    style={{ float: 'right' }}
+                                    to={route.path}
+                                    tag={RRNavLink}
+                                    key={key}>
+                                    <Menu.Item
+                                        name={route.name}
+                                        active={activeItem === route.name}
+                                        onClick={handleOnClickMenuItem}>
+                                        <MenuItemText>{route.name}</MenuItemText>
+                                    </Menu.Item>
+                                </Link>
+                            );
+                        })
+                        }
+                        <Dropdown
+                            item
+                            text='매출관리'
+                            active
+                            style={{ color: 'white' }}
+                        >
+                            <Dropdown.Menu>
+                                {mainRoutes.filter(route => route.menu.position === 'top' && route.menu.category === 'payment').map((route, key) => {
+                                    console.log(route)
+                                    return (
+                                        <Link
+                                            style={{ float: 'right' }}
+                                            to={route.path}
+                                            tag={RRNavLink}
+                                            key={key}>
+                                            <Dropdown.Item
+                                                onClick={handleOnClickMenuItem}>
+                                                <MenuItemText color='#304DB9'>{route.name}</MenuItemText>
+                                            </Dropdown.Item>
+                                        </Link>
+                                    );
+                                })
+                                }
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <Dropdown
+                            item
+                            text='상점관리'
+                            active
+                            style={{ color: 'white' }}
+                        >
+                            <Dropdown.Menu>
+                                {mainRoutes.filter(route => route.menu.position === 'top' && route.menu.category === 'shop').map((route, key) => {
+                                    console.log(route)
+                                    return (
+                                        <Link
+                                            style={{ float: 'right' }}
+                                            to={route.path}
+                                            tag={RRNavLink}
+                                            key={key}>
+                                            <Dropdown.Item
+                                                onClick={handleOnClickMenuItem}>
+                                                <MenuItemText color='#304DB9'>{route.name}</MenuItemText>
+                                            </Dropdown.Item>
+                                        </Link>
+                                    );
+                                })
+                                }
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Menu.Menu>
+                </Container>
             </Menu>
             <div style={{ paddingTop: '9vh' }}>
                 <Switch>

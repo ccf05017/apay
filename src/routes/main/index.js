@@ -8,13 +8,19 @@ const mainRoutes = [
         path: contextPath + '/dashboard',
         name: 'Dashboard',
         component: Dashboard,
-        topMenu: false
+        menu: {
+            position: 'top',
+            category: 'dashboard'
+        }
     },
     {
         path: contextPath + '/payment_history',
         name: '결제내역',
         component: PaymentHistory,
-        topMenu: true
+        menu: {
+            position: 'top',
+            category: 'payment'
+        }
     },
 ]
 
