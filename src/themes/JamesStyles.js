@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Input, Button } from 'semantic-ui-react';
+import { Input, Button, Container, Dropdown } from 'semantic-ui-react';
 
 
 export const JamesWrapper = styled.div`
@@ -120,15 +120,122 @@ export const JamesInput = styled(Input)`
 export const JamesButton = styled(Button)`
     &&& {
         border-radius: 24px;
-        background-color: ${props => props.negativestyle ? 'white' : '#304DB9'};
-        color: ${props => props.negativestyle ? '#304DB9' : 'white'};
+        background-color: ${props => props.negativestyle ? 'white' : props.color};
+        color: ${props => props.negativestyle ? props.color : 'white'};
         height: 40px;
     }
 
     &&&:hover {
         border-radius: 24px;
         background-color: ${props => props.negativestyle ? 'white' : '#3373eb'};
-        color: ${props => props.negativestyle ? '#4280f5' : 'white'};
+        color: ${props => props.negativestyle ? props.color : 'white!important'};
         height: 40px;
+    }
+`
+
+export const JamesCard = styled(Container)`
+    height: ${props => props.height ? props.height : 'inherit'};
+    width: 100%!important;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 14px 0 rgba(131, 145, 165, 0.1);
+    padding: 24px;
+    /* margin: 0px!important; */
+`
+
+export const JamesMenuDropdown = styled(Dropdown)`
+    /* width: 32px; */
+    &&& .menu.transition.visible {
+        border-radius: 4px;
+        border: solid 1px #8391a5;
+    }
+
+    &&& .menu.transition.visible > .item {
+        /* width: 41px; */
+        /* height: 22px; */
+        /* font-family: SpoqaHanSans; */
+        font-size: 15px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.47;
+        letter-spacing: normal;
+        text-align: left;
+        color: #4280f5;
+    }
+
+    &&&:hover {
+        background-color: #e4e7ef;
+    }
+
+    &&& i.icon {
+        margin: 0;
+    }
+
+    &&& i.icon:before {
+        content: ${props => props.customicon ? 'url(' + props.customicon + ')' : props.icon};
+        margin: 0;
+    }
+`
+
+export const JamesDropdown = styled(Dropdown)`
+    /* &&& .menu.transition.visible {
+        border-radius: 4px;
+        border: solid 1px #8391a5;
+    }
+
+    &&& .menu.transition.visible > .item {
+        font-size: 15px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.47;
+        letter-spacing: normal;
+        text-align: left;
+        color: #4280f5;
+    }
+
+    &&&:hover {
+        background-color: #e4e7ef;
+    }
+
+    &&& i.icon {
+        margin: 0;
+    }
+
+    &&& i.icon:before {
+        content: ${props => props.customicon ? 'url(' + props.customicon + ')' : props.icon};
+        margin: 0;
+    } */
+
+    &&& .text {
+        margin: auto;
+        color: ${props => props.color ? props.color : 'white' };
+        width: 74px;
+        height: 24px;
+        font-size: 16px;
+        font-weight: bold!important;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: -0.16px;
+        text-align: center;
+    }
+
+`
+
+export const JamesButtonGroup = styled.div`
+    border: 1px solid #e4e7ef;
+    border-radius: 24px;
+    padding: 4px 4px 4px 4px;
+    display: inline-flex;
+
+    button {
+        display: inline-table;
+        flex-direction: row;
+        /* background: ${props => props.active ? '#4280F5!important' : 'white!important'}; */
+        border-radius: 24px!important;
+        margin: 0px!important;
+        /* color: ${props => props.active ? 'white!important' : '#4280F5!important'}; */
     }
 `

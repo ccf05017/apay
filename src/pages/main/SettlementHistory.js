@@ -40,7 +40,7 @@ function onFetchData() {
 }
 
 
-const PaymentHistory = (props) => {
+const SettlementHistory = (props) => {
     const columns = [
         {
             Header: 'Id',
@@ -74,29 +74,10 @@ const PaymentHistory = (props) => {
             <Grid>
                 <Grid.Row>
                     <Grid.Column>
-                        <JamesHeader size={1}>결제내역</JamesHeader>
+                        <JamesHeader size={1}>정산내역</JamesHeader>
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row columns={4}>
-                    <Grid.Column>
-                        <JamesCard>
-                            <Grid>
-                                <Grid.Row>
-                                    <Grid.Column>
-                                        <JamesNormalText size='15px'>총 결제요청 금액</JamesNormalText>
-                                    </Grid.Column>
-                                </Grid.Row>
-                                <Grid.Row>
-                                    <Grid.Column>
-                                        <JamesHeader size='36px'>
-                                            {/* TODO api call */}
-                                            154,200
-                                        </JamesHeader>
-                                    </Grid.Column>
-                                </Grid.Row>
-                            </Grid>
-                        </JamesCard>
-                    </Grid.Column>
                     <Grid.Column>
                         <JamesCard>
                             <Grid>
@@ -121,14 +102,14 @@ const PaymentHistory = (props) => {
                             <Grid>
                                 <Grid.Row>
                                     <Grid.Column>
-                                        <JamesNormalText size='15px'>결제실패 금액</JamesNormalText>
+                                        <JamesNormalText size='15px'>결제수수료</JamesNormalText>
                                     </Grid.Column>
                                 </Grid.Row>
                                 <Grid.Row>
                                     <Grid.Column>
-                                        <JamesHeader size='36px' color='#FC6386'>
+                                        <JamesHeader size='36px'>
                                             {/* TODO api call */}
-                                            154,200
+                                            1,200
                                         </JamesHeader>
                                     </Grid.Column>
                                 </Grid.Row>
@@ -140,14 +121,33 @@ const PaymentHistory = (props) => {
                             <Grid>
                                 <Grid.Row>
                                     <Grid.Column>
-                                        <JamesNormalText size='15px'>잔여금액</JamesNormalText>
+                                        <JamesNormalText size='15px'>VAT</JamesNormalText>
                                     </Grid.Column>
                                 </Grid.Row>
                                 <Grid.Row>
                                     <Grid.Column>
                                         <JamesHeader size='36px'>
                                             {/* TODO api call */}
-                                            654,000
+                                            120
+                                        </JamesHeader>
+                                    </Grid.Column>
+                                </Grid.Row>
+                            </Grid>
+                        </JamesCard>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <JamesCard>
+                            <Grid>
+                                <Grid.Row>
+                                    <Grid.Column>
+                                        <JamesNormalText size='15px'>정산금액</JamesNormalText>
+                                    </Grid.Column>
+                                </Grid.Row>
+                                <Grid.Row>
+                                    <Grid.Column>
+                                        <JamesHeader size='36px'>
+                                            {/* TODO api call */}
+                                            142,880
                                         </JamesHeader>
                                     </Grid.Column>
                                 </Grid.Row>
@@ -159,8 +159,8 @@ const PaymentHistory = (props) => {
                     <Grid.Column>
                         <JamesCard>
                             <Grid>
-                                <Grid.Row columns={5}>
-                                    <Grid.Column >
+                                <Grid.Row columns={4}>
+                                    <Grid.Column width={3}>
                                         <JamesDatePicker
                                             isClearable
                                             dateFormat="yyyy-MM-dd"
@@ -170,7 +170,7 @@ const PaymentHistory = (props) => {
                                             formatWeekDay={nameOfDay => nameOfDay.substr(0, 1)}
                                         />
                                     </Grid.Column>
-                                    <Grid.Column >
+                                    <Grid.Column width={3}>
                                         <JamesDatePicker
                                             isClearable
                                             dateFormat="yyyy-MM-dd"
@@ -180,7 +180,7 @@ const PaymentHistory = (props) => {
                                             formatWeekDay={nameOfDay => nameOfDay.substr(0, 1)}
                                         />
                                     </Grid.Column>
-                                    <Grid.Column width={8}>
+                                    <Grid.Column width={7}>
                                         <JamesButtonGroup>
                                             <JamesButton color='#4280F5'>이번달</JamesButton>
                                             <JamesButton color='#4280F5' negativestyle>오늘</JamesButton>
@@ -189,54 +189,13 @@ const PaymentHistory = (props) => {
                                             <JamesButton color='#4280F5' negativestyle>6개월</JamesButton>
                                         </JamesButtonGroup>
                                     </Grid.Column>
-                                </Grid.Row>
-                                <Grid.Row columns={5}>
-                                    <Grid.Column>
-                                        <JamesForm>
-                                            <JamesForm.Select
-                                                fluid
-                                                label='결제구분'
-                                                options={options}
-                                                placeholder='전체'
-                                            />
-                                        </JamesForm>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <JamesForm>
-                                            <JamesForm.Input
-                                                fluid
-                                                label='구매자명'
-                                                placeholder='홍길동'
-                                            />
-                                        </JamesForm>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <JamesForm>
-                                            <JamesForm.Input
-                                                fluid
-                                                label='주문번호'
-                                                placeholder='123456789'
-                                            />
-                                        </JamesForm>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <JamesForm>
-                                            <JamesForm.Select
-                                                fluid
-                                                label='은행'
-                                                options={options}
-                                                placeholder='전체'
-                                            />
-                                        </JamesForm>
-                                    </Grid.Column>
-                                    <Grid.Column>
+                                    <Grid.Column width={3}>
                                         <div style={{ position: 'absolute', bottom: '0px' }}>
                                             <JamesButton color='#E4EDFE' style={{ color: '#4280F5' }}>검색</JamesButton>
                                             <JamesButton color='#4280F5' negativestyle>초기화</JamesButton>
                                         </div>
-                                       
+
                                     </Grid.Column>
-                                    
                                 </Grid.Row>
                             </Grid>
                         </JamesCard>
@@ -252,9 +211,9 @@ const PaymentHistory = (props) => {
                                 count={10}
                                 // onClick={(cellValue) => this.handleInstanceNameClick(cellValue)}
                                 onFetchData={onFetchData}
-                                // pageCount={pageCount}
-                                // search={searchCondition}
-                                // totalCount={totalCount}
+                            // pageCount={pageCount}
+                            // search={searchCondition}
+                            // totalCount={totalCount}
                             />
                         </JamesCard>
                     </Grid.Column>
@@ -266,4 +225,4 @@ const PaymentHistory = (props) => {
 
 }
 
-export default PaymentHistory;
+export default SettlementHistory;

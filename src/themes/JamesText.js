@@ -14,3 +14,25 @@ export const MenuItemText = styled.p`
     letter-spacing: -0.16px;
     text-align: center;
 `
+
+export const JamesHeader = styled.span`
+    font-size: ${props => props.size === 1 ? '28px' : props.size === 2 ? '24px' : props.size === 3 ? '18px' : props.size};
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: ${props => props.color ? props.color : '#3b4a5f'};
+`
+
+export const JamesNormalText = styled.span`
+    font-size: ${props => props.size};
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: ${props => props.color ? props.color : '#8391A5'};
+`

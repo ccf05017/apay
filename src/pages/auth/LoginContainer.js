@@ -10,14 +10,23 @@ function LoginContainer(props) {
     }));
 
     const dispatch = useDispatch();
-    const onLogIn = () => {
-        dispatch(logIn());
+    const onLogIn = (shopId, password) => {
+        console.log(shopId, password)
+        //TODO login api call 여기서 token 등을 받아와야 함
+        let token = getToken(shopId, password);
+        dispatch(logIn(shopId, password));
         props.history.push('/main');
+        
+    }
+
+    const getToken = (shopId, password) => {
+        if (shopId === '1234' && password === '1234') return 'token';
+        else return 'error';
     }
 
     return (
         <Login
-            onClickLoginButton={onLogIn}
+            onClickLoginButton={(shopId, password) => onLogIn(shopId, password)}
             loginResult={loginResult}
         />
     )

@@ -6,6 +6,9 @@ import apayMainLogo from 'assets/images/logo_main.svg';
 import {
     MenuItemText
 } from 'themes/JamesText';
+import {
+    JamesDropdown
+} from 'themes/JamesStyles';
 
 const MainLayout = (props) => {
 
@@ -46,13 +49,13 @@ const MainLayout = (props) => {
                             );
                         })
                         }
-                        <Dropdown
+                        <JamesDropdown
                             item
                             text='매출관리'
                             active
                             style={{ color: 'white' }}
                         >
-                            <Dropdown.Menu>
+                            <JamesDropdown.Menu>
                                 {mainRoutes.filter(route => route.menu.position === 'top' && route.menu.category === 'payment').map((route, key) => {
                                     console.log(route)
                                     return (
@@ -61,23 +64,23 @@ const MainLayout = (props) => {
                                             to={route.path}
                                             tag={RRNavLink}
                                             key={key}>
-                                            <Dropdown.Item
+                                            <JamesDropdown.Item
                                                 onClick={handleOnClickMenuItem}>
                                                 <MenuItemText color='#304DB9'>{route.name}</MenuItemText>
-                                            </Dropdown.Item>
+                                            </JamesDropdown.Item>
                                         </Link>
                                     );
                                 })
                                 }
-                            </Dropdown.Menu>
-                        </Dropdown>
-                        <Dropdown
+                            </JamesDropdown.Menu>
+                        </JamesDropdown>
+                        <JamesDropdown
                             item
                             text='상점관리'
                             active
                             style={{ color: 'white' }}
                         >
-                            <Dropdown.Menu>
+                            <JamesDropdown.Menu>
                                 {mainRoutes.filter(route => route.menu.position === 'top' && route.menu.category === 'shop').map((route, key) => {
                                     console.log(route)
                                     return (
@@ -86,16 +89,16 @@ const MainLayout = (props) => {
                                             to={route.path}
                                             tag={RRNavLink}
                                             key={key}>
-                                            <Dropdown.Item
+                                            <JamesDropdown.Item
                                                 onClick={handleOnClickMenuItem}>
                                                 <MenuItemText color='#304DB9'>{route.name}</MenuItemText>
-                                            </Dropdown.Item>
+                                            </JamesDropdown.Item>
                                         </Link>
                                     );
                                 })
                                 }
-                            </Dropdown.Menu>
-                        </Dropdown>
+                            </JamesDropdown.Menu>
+                        </JamesDropdown>
                     </Menu.Menu>
                 </Container>
             </Menu>

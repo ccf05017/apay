@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink as RRNavLink, withRouter } from "react-router-dom";
 import {
     JamesInput,
@@ -11,6 +11,25 @@ import apayMainLogo from 'assets/images/logo_main.svg';
 // import { connect } from 'react-redux';
 
 const Login = ({ loginResult, onClickLoginButton }) => {
+    const [inputs, setInputs] = useState({
+        shopId: '',
+        password: ''
+    });
+
+    const { shopId, password } = inputs;
+
+    const onChange = (e) => {
+        const { value, name } = e.target;
+        setInputs({
+            ...inputs,
+            [name]: value
+        });
+    }
+
+    const onClick = (e) => {
+        onClickLoginButton(shopId,password)
+    }
+
     return (
         <JamesWrapper>
             <div className='segment'>
@@ -31,8 +50,29 @@ const Login = ({ loginResult, onClickLoginButton }) => {
                     <div className='inner-box'>
                         <JamesHeader color='black' size='48px'>로그인</JamesHeader>
                         <span className='bodytext'>계속하기 위해 로그인해주세요.</span>
-                        <JamesInput style={{ height: '60px', marginBottom: '20px', fontSize: '24px' }} placeholder='유저명 또는 이메일주소' />
-                        <JamesInput style={{ height: '60px', marginBottom: '20px', fontSize: '24px' }} placeholder='패스워드' />
+                        <JamesInput
+                            name='shopId'
+                            style={{
+                                height: '60px',
+                                marginBottom: '20px',
+                                fontSize: '24px'
+                            }}
+                            placeholder='가맹점코드 또는 이메일주소'
+                            onChange={onChange}
+                            value={shopId}
+                        />
+                        <JamesInput
+                            name='password'
+                            type='password'
+                            style={{
+                                height: '60px',
+                                marginBottom: '20px',
+                                fontSize: '24px'
+                            }}
+                            placeholder='패스워드'
+                            onChange={onChange}
+                            value={password}
+                        />
                         <Link
                             style={{
                                 fontSize: '20px',
@@ -48,14 +88,16 @@ const Login = ({ loginResult, onClickLoginButton }) => {
                             flexDirection: 'row',
                             alignItems: 'center'
                         }}>
-                            <JamesButton style={{
+                            <JamesButton
+                                color='#4280F5'
+                                style={{
                                 width: '245px',
                                 height: '64px',
                                 fontSize: '26px',
                                 borderRadius: '50px'
                             }}
                                 content='로그인'
-                                onClick={onClickLoginButton}/>
+                                onClick={onClick}/>
                             <Link
                                 style={{
                                     fontSize: '20px',

@@ -12,6 +12,8 @@ const App = (props) => {
     loginResult: state.auth.loginResult
   }));
 
+  console.log(loginResult)
+
   return (
     <Router basename="/">
       <div>
