@@ -1,14 +1,17 @@
-import Dashboard from 'pages/main/Dashboard'; 
+import Dashboard from 'pages/main/Dashboard';
 import PaymentHistory from 'pages/main/PaymentHistory';
 import SettlementHistory from 'pages/main/SettlementHistory';
 import PaymentCancellation from 'pages/main/PaymentCancellation';
 import ShopInfo from 'pages/main/ShopInfo';
+import Logout from 'pages/auth/Logout';
+import { Redirect } from 'react-router-dom';
+import React from 'react';
 
-const contextPath = '/main';
+const contextPath = '/main/';
 
 const mainRoutes = [
     {
-        path: contextPath + '/dashboard',
+        path: contextPath + 'dashboard',
         name: 'Dashboard',
         component: Dashboard,
         menu: {
@@ -17,7 +20,7 @@ const mainRoutes = [
         }
     },
     {
-        path: contextPath + '/payment_history',
+        path: contextPath + 'payment_history',
         name: '결제내역',
         component: PaymentHistory,
         menu: {
@@ -26,7 +29,7 @@ const mainRoutes = [
         }
     },
     {
-        path: contextPath + '/settlement_history',
+        path: contextPath + 'settlement_history',
         name: '정산내역',
         component: SettlementHistory,
         menu: {
@@ -35,7 +38,7 @@ const mainRoutes = [
         }
     },
     {
-        path: contextPath + '/payment_cancellation',
+        path: contextPath + 'payment_cancellation',
         name: '결제취소',
         component: PaymentCancellation,
         menu: {
@@ -44,7 +47,7 @@ const mainRoutes = [
         }
     },
     {
-        path: contextPath + '/shop_info',
+        path: contextPath + 'shop_info',
         name: '상점정보',
         component: ShopInfo,
         menu: {
@@ -53,9 +56,9 @@ const mainRoutes = [
         }
     },
     {
-        path: contextPath + '/logout',
+        path: '/auth/logout',
         name: '로그아웃',
-        component: PaymentCancellation,
+        component: <Redirect to='/auth/logout' />,
         menu: {
             position: 'top',
             category: 'shop'

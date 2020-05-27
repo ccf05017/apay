@@ -1,9 +1,11 @@
 const LOGIN = 'auth/LOGIN';
+const LOGOUT = 'auth/LOGOUT';
 
-export const logIn = (shopId, password) => ({ type: LOGIN });
+export const logIn = (isAuthenticated) => ({ type: LOGIN, isAuthenticated });
+export const logOut = () => ({ type: LOGOUT });
 
 const initialState = {
-    loginResult: false
+    isAuthenticated: false
 }
 
 export default function auth(state = initialState, action) {
@@ -11,7 +13,12 @@ export default function auth(state = initialState, action) {
         case LOGIN:
             return {
                 ...state,
-                loginResult: true
+                isAuthenticated : action.isAuthenticated
+            }
+        case LOGOUT:
+            return {
+                ...state,
+                isAuthenticated: false
             }
         default:
             return state;

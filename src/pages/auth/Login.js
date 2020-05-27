@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, NavLink as RRNavLink, withRouter } from "react-router-dom";
+import { Link, NavLink as RRNavLink } from "react-router-dom";
 import {
     JamesInput,
     JamesWrapper,
@@ -8,9 +8,8 @@ import {
 } from 'themes/JamesStyles';
 import apayMainImg from 'assets/images/img_main.png';
 import apayMainLogo from 'assets/images/logo_main.svg';
-// import { connect } from 'react-redux';
 
-const Login = ({ loginResult, onClickLoginButton }) => {
+const Login = ({ onClickLoginButton }) => {
     const [inputs, setInputs] = useState({
         shopId: '',
         password: ''

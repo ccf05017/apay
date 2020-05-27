@@ -42,7 +42,7 @@ const PasswordReset = (props) => {
                             flexDirection: 'row',
                             alignItems: 'center'
                         }}>
-                            <JamesButton style={{ width: '245px', height: '64px', fontSize: '26px', borderRadius: '50px' }} content='메일발송' />
+                            <JamesButton color='#4280F5' style={{ width: '245px', height: '64px', fontSize: '26px', borderRadius: '50px' }} content='메일발송' />
                             <Link
                                 style={{
                                     fontSize: '20px',
