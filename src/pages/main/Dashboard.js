@@ -13,7 +13,6 @@ import {
     JamesNormalText
 } from 'themes/JamesText';
 import JamesLineGraph from 'themes/JamesLineGraph';
-import JamesListTable from 'themes/JamesListTable';
 import backIcon from 'assets/images/back.svg';
 import nextIcon from 'assets/images/next.svg';
 
