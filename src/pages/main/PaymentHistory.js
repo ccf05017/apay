@@ -29,10 +29,14 @@ const options = [
 ]
 
 const data = [
-    { id: 1, name: "재직증명서 발급 서비스 인스턴스 #1", endpoint: "http://10.10.101.1:8080", status: true, serviceId: 1, siteName: "현대카드" },
-    { id: 1, name: "재직증명서 발급 서비스 인스턴스 #1", endpoint: "http://10.10.101.1:8080", status: true, serviceId: 1, siteName: "현대카드" },
-    { id: 1, name: "재직증명서 발급 서비스 인스턴스 #1", endpoint: "http://10.10.101.1:8080", status: true, serviceId: 1, siteName: "현대카드" },
-    { id: 1, name: "재직증명서 발급 서비스 인스턴스 #1", endpoint: "http://10.10.101.1:8080", status: true, serviceId: 1, siteName: "현대카드" }
+    { id: 1, payDate: "2020-05-30 23:00:03", customer: "홍길동", amount: "10,000", orderNumber: "123456789", payType: "출금/이체", bank: "신한은행" },
+    { id: 2, payDate: "2020-05-30 22:00:03", customer: "박길동", amount: "10,000", orderNumber: "123456789", payType: "출금/이체", bank: "국민은행" },
+    { id: 3, payDate: "2020-05-30 21:00:03", customer: "이길동", amount: "10,000", orderNumber: "123456789", payType: "출금/이체", bank: "하나은행" },
+    { id: 4, payDate: "2020-05-30 20:00:03", customer: "김길동", amount: "10,000", orderNumber: "123456789", payType: "출금/이체", bank: "신한은행" },
+    { id: 5, payDate: "2020-05-30 13:00:03", customer: "임길동", amount: "10,000", orderNumber: "123456789", payType: "출금/이체", bank: "국민은행" },
+    { id: 6, payDate: "2020-05-30 12:00:03", customer: "여길동", amount: "10,000", orderNumber: "123456789", payType: "출금/이체", bank: "하나은행" },
+    { id: 7, payDate: "2020-05-30 10:00:03", customer: "최길동", amount: "10,000", orderNumber: "123456789", payType: "출금/이체", bank: "신한은행" },
+    { id: 8, payDate: "2020-05-30 09:00:03", customer: "권길동", amount: "10,000", orderNumber: "123456789", payType: "출금/이체", bank: "신한은행" },
 ]
 
 function onFetchData() {
@@ -48,24 +52,28 @@ const PaymentHistory = (props) => {
             show: false
         },
         {
-            Header: 'Instance name',
-            accessor: 'name'
+            Header: '결제일',
+            accessor: 'payDate'
         },
         {
-            Header: 'Site name',
-            accessor: 'siteName',
+            Header: '구매자명',
+            accessor: 'customer',
         },
         {
-            Header: 'Service name',
-            accessor: 'serviceName'
+            Header: '결제금액',
+            accessor: 'amount',
         },
         {
-            Header: 'Endpoint',
-            accessor: 'endpoint'
+            Header: '주문번호',
+            accessor: 'orderNumber'
         },
         {
-            Header: 'Status',
-            accessor: 'status'
+            Header: '결제구분',
+            accessor: 'payType'
+        },
+        {
+            Header: '은행',
+            accessor: 'bank'
         },
     ]
 

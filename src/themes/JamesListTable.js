@@ -243,7 +243,6 @@ const JamesListTable = ({
                 </Table.Body>
                 {/* <TableFoots foots={foots} length={headers.length} /> */}
                 <Table.Footer>
-
                     <Table.Row>
                         <Table.HeaderCell colSpan={columns.length}>
                             <Menu float='left' pagination>

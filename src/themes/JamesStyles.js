@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Input, Button, Container, Dropdown } from 'semantic-ui-react';
+import { Input, Button, Container, Dropdown, Image } from 'semantic-ui-react';
 
 
 export const JamesWrapper = styled.div`
@@ -238,4 +238,16 @@ export const JamesButtonGroup = styled.div`
         margin: 0px!important;
         /* color: ${props => props.active ? 'white!important' : '#4280F5!important'}; */
     }
+`
+
+export const JamesImage = styled(Image)`
+    display: inline-block!important;
+    position: relative;
+    width: 16px!important;
+    height: 16px!important;
+    object-fit: contain;
+    /* float: right; */
+    vertical-align: middle;
+    margin-right: 4px!important;
+    margin-left: !important;
 `

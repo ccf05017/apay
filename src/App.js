@@ -26,7 +26,7 @@ const App = (props) => {
       <div>
         <Switch>
           <Route exact path="/" render={() => {
-            return isAuthenticated ? <Redirect to="/dashboard" />
+            return isAuthenticated ? <Redirect to="/main/dashboard" />
               : <Redirect to="/auth/login" />
           }} />
           <Route exact path="/auth/logout" component={Logout} />
