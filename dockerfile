@@ -1,6 +1,6 @@
-FROM yarnpkg/node-yarn
+FROM node
 WORKDIR /usr/src/app
 COPY package*.json ./
-RUN yarn install --silent
+RUN npm install --silent
 COPY . .
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
